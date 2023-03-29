@@ -3,6 +3,7 @@
 namespace Faker\Test\Provider;
 
 use Faker\Provider\Base as BaseProvider;
+use Faker\Test\Fixture\Enum\BackedEnum;
 use Faker\Test\TestCase;
 
 /**
@@ -608,6 +609,21 @@ final class BaseTest extends TestCase
 
         self::assertCount(3, $randomElements);
         self::assertContainsOnly('string', $randomElements);
+    }
+
+    public function testRandomElementWithEnum(): void
+    {
+        if (!function_exists('enum_exists')) {
+            self::markTestSkipped('Enums were not implemented until 8.1');
+        }
+
+        require_once __DIR__ . '/../../Fixture/Enum/BackedEnum.php';
+
+        self::assertCount(2, $cases = BaseProvider::randomElements(BackedEnum::class, 2));
+        self::assertInstanceOf(BackedEnum::class, $cases[0]);
+        self::assertInstanceOf(BackedEnum::class, $cases[1]);
+
+        self::assertInstanceOf(BackedEnum::class, BaseProvider::randomElement(BackedEnum::class));
     }
 }
 
