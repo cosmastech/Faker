@@ -192,8 +192,8 @@ class Base
     {
         $elements = $array;
 
-        if (is_string($array) && function_exists('enum_exists') && enum_exists($array)) {
-            $elements = [$array, 'cases']();
+        if (is_string($array) && function_exists('enum_exists') && \enum_exists($array)) {
+            $array = [$array, 'cases']();
         }
 
         if ($array instanceof \Traversable) {
