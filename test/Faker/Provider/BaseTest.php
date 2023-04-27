@@ -614,13 +614,24 @@ final class BaseTest extends TestCase
     /**
      * @requires PHP 8.1
      */
+    public function testRandomElementsWithEnum(): void
+    {
+        $count = 2;
+        
+        $randomElements = BaseProvider::randomElements(BackedEnum::class, $count);
+
+        self::assertCount($count, $randomElements);
+        self::assertContainsOnlyInstancesOf(BackedEnum::class, $randomElements);
+    }
+
+    /**
+     * @requires PHP 8.1
+     */
     public function testRandomElementWithEnum(): void
     {
-        self::assertCount(2, $cases = BaseProvider::randomElements(BackedEnum::class, 2));
-        self::assertInstanceOf(BackedEnum::class, $cases[0]);
-        self::assertInstanceOf(BackedEnum::class, $cases[1]);
+        $randomElement = BaseProvider::randomElement(BackedEnum::class);
 
-        self::assertInstanceOf(BackedEnum::class, BaseProvider::randomElement(BackedEnum::class));
+        self::assertInstanceOf(BackedEnum::class, $randomElement);
     }
 }
 
