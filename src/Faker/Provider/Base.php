@@ -179,7 +179,7 @@ class Base
     /**
      * Returns randomly ordered subsequence of $count elements from a provided array
      *
-     * @param array|string|\Traversable $array           Array to take elements from. Defaults to a-c
+     * @param array|class-string<\UnitEnum>|\Traversable $array           Array to take elements from. Defaults to a-c
      * @param int                       $count           Number of elements to take.
      * @param bool                      $allowDuplicates Allow elements to be picked several times. Defaults to false
      *
@@ -250,8 +250,7 @@ class Base
     /**
      * Returns a random element from a passed array
      *
-     * @param array|string|\Traversable $array
-     * @param array|\Traversable $array
+     * @param array|class-string<\UnitEnum>|\Traversable $array
      *
      * @throws \InvalidArgumentException
      */
