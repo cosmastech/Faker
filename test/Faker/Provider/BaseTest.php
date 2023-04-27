@@ -611,12 +611,11 @@ final class BaseTest extends TestCase
         self::assertContainsOnly('string', $randomElements);
     }
 
+    /**
+     * @requires PHP 8.1
+     */
     public function testRandomElementWithEnum(): void
     {
-        if (!function_exists('enum_exists')) {
-            self::markTestSkipped('Enums were not implemented until 8.1');
-        }
-
         require_once __DIR__ . '/../../Fixture/Enum/BackedEnum.php';
 
         self::assertCount(2, $cases = BaseProvider::randomElements(BackedEnum::class, 2));
