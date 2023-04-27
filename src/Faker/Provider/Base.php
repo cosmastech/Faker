@@ -192,7 +192,7 @@ class Base
     {
         $elements = $array;
 
-        if (is_string($array) && function_exists('enum_exists') && \enum_exists($array)) {
+        if (is_string($array) && function_exists('enum_exists') && enum_exists($array)) {
             $elements = $array::cases();
         }
 
