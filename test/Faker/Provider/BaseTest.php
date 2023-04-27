@@ -3,7 +3,7 @@
 namespace Faker\Test\Provider;
 
 use Faker\Provider\Base as BaseProvider;
-use Faker\Test\Fixture\Enum\BackedEnum;
+use Faker\Test\Fixture;
 use Faker\Test\TestCase;
 
 /**
@@ -618,10 +618,10 @@ final class BaseTest extends TestCase
     {
         $count = 2;
 
-        $randomElements = BaseProvider::randomElements(BackedEnum::class, $count);
+        $randomElements = BaseProvider::randomElements(Fixture\Enum\BackedEnum::class, $count);
 
         self::assertCount($count, $randomElements);
-        self::assertContainsOnlyInstancesOf(BackedEnum::class, $randomElements);
+        self::assertContainsOnlyInstancesOf(Fixture\Enum\BackedEnum::class, $randomElements);
     }
 
     /**
@@ -629,9 +629,9 @@ final class BaseTest extends TestCase
      */
     public function testRandomElementWithEnum(): void
     {
-        $randomElement = BaseProvider::randomElement(BackedEnum::class);
+        $randomElement = BaseProvider::randomElement(Fixture\Enum\BackedEnum::class);
 
-        self::assertInstanceOf(BackedEnum::class, $randomElement);
+        self::assertInstanceOf(Fixture\Enum\BackedEnum::class, $randomElement);
     }
 }
 
