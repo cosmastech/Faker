@@ -616,8 +616,6 @@ final class BaseTest extends TestCase
      */
     public function testRandomElementWithEnum(): void
     {
-        require_once __DIR__ . '/../../Fixture/Enum/BackedEnum.php';
-
         self::assertCount(2, $cases = BaseProvider::randomElements(BackedEnum::class, 2));
         self::assertInstanceOf(BackedEnum::class, $cases[0]);
         self::assertInstanceOf(BackedEnum::class, $cases[1]);
