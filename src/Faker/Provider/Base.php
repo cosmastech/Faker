@@ -180,8 +180,8 @@ class Base
      * Returns randomly ordered subsequence of $count elements from a provided array
      *
      * @param array|class-string<\UnitEnum>|\Traversable $array           Array to take elements from. Defaults to a-c
-     * @param int                       $count           Number of elements to take.
-     * @param bool                      $allowDuplicates Allow elements to be picked several times. Defaults to false
+     * @param int                                        $count           Number of elements to take.
+     * @param bool                                       $allowDuplicates Allow elements to be picked several times. Defaults to false
      *
      * @throws \InvalidArgumentException
      * @throws \LengthException          When requesting more elements than provided
@@ -193,7 +193,7 @@ class Base
         $elements = $array;
 
         if (is_string($array) && function_exists('enum_exists') && \enum_exists($array)) {
-            $traversables = [$array, 'cases']();
+            $elements = $array::cases();
         }
 
         if ($array instanceof \Traversable) {
@@ -259,7 +259,7 @@ class Base
         $elements = $array;
 
         if (is_string($array) && function_exists('enum_exists') && enum_exists($array)) {
-            $elements = [$array, 'cases']();
+            $elements = $array::cases();
         }
 
         if ($array instanceof \Traversable) {

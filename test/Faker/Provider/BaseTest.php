@@ -617,7 +617,7 @@ final class BaseTest extends TestCase
     public function testRandomElementsWithEnum(): void
     {
         $count = 2;
-        
+
         $randomElements = BaseProvider::randomElements(BackedEnum::class, $count);
 
         self::assertCount($count, $randomElements);
