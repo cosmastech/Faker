@@ -145,6 +145,10 @@
     <UndefinedDocblockClass>
       <code>Closure</code>
     </UndefinedDocblockClass>
+    <UndefinedFunction>
+      <code>enum_exists($array)</code>
+      <code>enum_exists($array)</code>
+    </UndefinedFunction>
   </file>
   <file src="src/Faker/Provider/Biased.php">
     <InvalidParamDefault>
