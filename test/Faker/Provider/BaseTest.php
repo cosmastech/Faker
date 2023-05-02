@@ -553,7 +553,8 @@ final class BaseTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf(
-            'Argument for parameter $array needs to be array or an instance of %s, got %s instead.',
+            'Argument for parameter $array needs to be array, an instance of %s, or an instance of %s, got %s instead.',
+            \UnitEnum::class,
             \Traversable::class,
             \stdClass::class,
         ));
@@ -565,7 +566,8 @@ final class BaseTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf(
-            'Argument for parameter $array needs to be array or an instance of %s, got %s instead.',
+            'Argument for parameter $array needs to be array, an instance of %s, or an instance of %s, got %s instead.',
+            \UnitEnum::class,
             \Traversable::class,
             'string',
         ));
