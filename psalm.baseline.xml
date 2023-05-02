@@ -142,6 +142,10 @@
     <InvalidArgument>
       <code>[static::class, 'randomDigit']</code>
     </InvalidArgument>
+    <UndefinedClass>
+      <code>\UnitEnum</code>
+      <code>\UnitEnum</code>
+    </UndefinedClass>
     <UndefinedDocblockClass>
       <code>Closure</code>
     </UndefinedDocblockClass>
